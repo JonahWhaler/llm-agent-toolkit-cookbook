@@ -93,7 +93,7 @@ def generate(llm: Text_to_Text, prompt: str) -> str | None:
         str | None: The generated response from the language model, or None if an error occurs.
     """
     try:
-        responses = llm.run(query=prompt, context=None)
+        responses, usage = llm.run(query=prompt, context=None)
 
         output_strings = ["\nAssistant:"]
         for response in responses:

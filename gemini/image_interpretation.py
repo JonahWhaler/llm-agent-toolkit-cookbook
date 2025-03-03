@@ -37,7 +37,7 @@ def interpret(llm: Image_to_Text, prompt: str, filepath: str) -> str | None:
         str | None: The final interpreted text prefixed with "Assistant:", or None if an error occurs.
     """
     try:
-        responses = llm.interpret(query=prompt, context=None, filepath=filepath)
+        responses, usage = llm.interpret(query=prompt, context=None, filepath=filepath)
         output_strings = ["\nAssistant:"]
         for response in responses:
             output_strings.append(response["content"])

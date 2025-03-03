@@ -35,7 +35,7 @@ def generate(llm: OAI_StructuredOutput_Core, prompt: str) -> str | None:
         str | None: The `json.loads` ready model's output, or None if an error occurs.
     """
     try:
-        responses = llm.run(query=prompt, context=None, mode=ResponseMode.JSON)
+        responses, usage = llm.run(query=prompt, context=None, mode=ResponseMode.JSON)
 
         output_strings = ["\nAssistant:"]
         for response in responses:

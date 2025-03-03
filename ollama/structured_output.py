@@ -28,7 +28,7 @@ class ResponseModel(BaseModel):
 def generate(llm: Text_to_Text_SO, prompt: str) -> str | None:
 
     try:
-        responses = llm.run(
+        responses, usage = llm.run(
             query=prompt, context=None, mode=ResponseMode.SO, format=ResponseModel
         )
 

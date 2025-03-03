@@ -43,7 +43,7 @@ def generate(llm: GMN_StructuredOutput_Core, prompt: str) -> str | None:
         str | None: The `json.loads` ready model's output, or None if an error occurs.
     """
     try:
-        responses = llm.run(
+        responses, usage = llm.run(
             query=prompt, context=None, mode=ResponseMode.SO, format=ResponseModel
         )
 
