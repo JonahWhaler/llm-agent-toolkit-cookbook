@@ -39,7 +39,8 @@ if __name__ == "__main__":
     FILEPATH = "./assets/sample.md"
     content = load(FILEPATH)
     # @llm-agent-toolkit[all]==0.0.30.2, metadata is required!!!
-    vector_memory.add(document_string=content, metadata={"filename": "sample.md"})
+    # @llm-agent-toolkit[all]>=0.0.30.4, metadata is optional!!!
+    vector_memory.add(document_string=content)  # , metadata={"filename": "sample.md"}
 
     Q = "How to install?"
 
